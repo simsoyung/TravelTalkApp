@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var mainTableView: UITableView!
+    @IBOutlet var magnifyingGlassImage: UIImageView!
     
     var mainList: [ChatRoom] = mockChatList
     
@@ -19,9 +20,15 @@ class ViewController: UIViewController {
         navigationItem.title = "TRAVEL TALK"
         configureTextField()
         configureView()
-        mainTableView.rowHeight = 100
+        configureImageView()
+        mainTableView.rowHeight = 90
+        
     }
-    
+    func configureImageView(){
+        magnifyingGlassImage.image = UIImage(systemName: "magnifyingglass")
+        magnifyingGlassImage.backgroundColor = .clear
+        magnifyingGlassImage.tintColor = .lightGray
+    }
     func configureView(){
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -30,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     func configureTextField(){
-        nameTextField.settingTextField(text: "친구 이름을 검색해보세요")
+        nameTextField.settingTextField(text: "        친구 이름을 검색해보세요")
     }
 }
 
@@ -41,7 +48,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainTableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
-        let data = mainList[indexPath.row].chatList
+        let data = mainList[indexPath.row]
+        
         cell.configureMainCell(data: data)
         
         return cell

@@ -84,11 +84,12 @@ extension TalkViewController {
 extension UITextField {
  
     func settingTextField(text: String){
+        self.largeContentImage = .init(systemName: "star")
         self.placeholder = text
-        self.textColor = .gray
-        self.font = .systemFont(ofSize: 14)
+        self.textColor = .darkGray
+        self.font = .systemFont(ofSize: 16, weight: .heavy)
         self.layer.cornerRadius = 20
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .systemGray6
     }
 }
 

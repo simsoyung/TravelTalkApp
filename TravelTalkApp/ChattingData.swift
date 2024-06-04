@@ -11,7 +11,7 @@ enum User: String {
     case jack = "Jack"
     case bran = "Bran"
     case den = "Den"
-    case user = "소영"
+    case user
     case other_friend = "내옆자리의앞자리에개발잘하는친구"
     case simsim = "심심이"
     
@@ -37,6 +37,10 @@ struct Chat {
     let message: String
 }
 
+// mockChatList = [ChatRoom0, ChatRoom1, ChatRoom2, ...]
+// mockChatList[0] = ChatRoom0 -> { chatroomId, chatroomImage, chatroomName, chatList=[Chat] }
+// mockChatList[0].chatroomName = ChatRoom0.chatroomName = [String]
+// mockChatList[0].chatroomName[0]
 
 let mockChatList: [ChatRoom] = [
     ChatRoom(chatroomId: 1,

@@ -16,6 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9e-Jz-hUO">
+                                <rect key="frame" x="16" y="112" width="361" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wZO-Rz-9HL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I7L-Pj-qli">
+                                <rect key="frame" x="24" y="119" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="IS9-U1-dxx"/>
+                                    <constraint firstAttribute="width" constant="25" id="evf-8c-vBm"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h5q-d9-W6y">
                                 <rect key="frame" x="0.0" y="168" width="393" height="650"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -23,20 +38,15 @@
                                     <constraint firstAttribute="height" constant="650" id="Sfl-gT-dz9"/>
                                 </constraints>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9e-Jz-hUO">
-                                <rect key="frame" x="16" y="102" width="361" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="wZO-Rz-9HL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="I7L-Pj-qli" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="0AX-Dd-ust"/>
+                            <constraint firstItem="I7L-Pj-qli" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="C9g-6n-QzN"/>
                             <constraint firstItem="h5q-d9-W6y" firstAttribute="top" secondItem="P9e-Jz-hUO" secondAttribute="bottom" constant="16" id="CWn-5B-1bf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h5q-d9-W6y" secondAttribute="trailing" id="Jzc-Nc-cDY"/>
+                            <constraint firstItem="h5q-d9-W6y" firstAttribute="top" secondItem="I7L-Pj-qli" secondAttribute="bottom" constant="24" id="Kpm-0C-eLj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h5q-d9-W6y" secondAttribute="bottom" id="TcE-jQ-U5w"/>
                             <constraint firstItem="h5q-d9-W6y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cUi-GZ-okv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P9e-Jz-hUO" secondAttribute="trailing" constant="16" id="oB5-3c-cXX"/>
@@ -45,6 +55,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aeu-8g-8bF"/>
                     <connections>
+                        <outlet property="magnifyingGlassImage" destination="I7L-Pj-qli" id="YAo-UR-7wm"/>
                         <outlet property="mainTableView" destination="h5q-d9-W6y" id="xQe-bC-6WU"/>
                         <outlet property="nameTextField" destination="P9e-Jz-hUO" id="YJx-ua-vVc"/>
                     </connections>
