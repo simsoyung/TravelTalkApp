@@ -9,11 +9,43 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var mainTableView: UITableView!
+    
+    var mainList: [ChatRoom] = mockChatList
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        navigationItem.title = "TRAVEL TALK"
+        configureTextField()
+        configureView()
+        mainTableView.rowHeight = 100
     }
-
-
+    
+    func configureView(){
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        let xib = UINib(nibName: MainTableViewCell.identifier, bundle: nil)
+        mainTableView.register(xib, forCellReuseIdentifier: MainTableViewCell.identifier)
+    }
+    
+    func configureTextField(){
+        nameTextField.settingTextField(text: "친구 이름을 검색해보세요")
+    }
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mainList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = mainTableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
+        let data = mainList[indexPath.row].chatList
+        cell.configureMainCell(data: data)
+        
+        return cell
+    }
+    
+    
+}
